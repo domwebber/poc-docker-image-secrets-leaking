@@ -1,0 +1,9 @@
+cff-version: 1.2.0
+title: "Proof of Concept - Docker Image Secret Extraction"
+version: 1.0.0
+date-released: 2024-03-28
+url: "https://github.com/domwebber/poc-docker-image-secrets-leaking"
+authors:
+- family-names: "Webber"
+  given-names: "Dom"
+  orcid: "https://orcid.org/0009-0009-6082-4523"
