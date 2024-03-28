@@ -30,6 +30,6 @@ grep: images/<image>/blobs/sha256/...
 ## References
 
 [^1]:
-    Álvaro Iradier (2021). Top 20 Dockerfile best practices. [online] Sysdig.
+    Álvaro Iradier (2021). _Top 20 Dockerfile best practices._ [online] Sysdig.
     Available at: <https://sysdig.com/blog/dockerfile-best-practices/> [Accessed
     28 Mar. 2024].
