@@ -11,6 +11,8 @@ args, or hard coded into any command)” (Álvaro Iradier, 2021)[^1] and seeing 
 often this practice is ignored, I questioned how easy it would be to extract
 secrets from a Docker image.
 
+![Example Secret Extraction using Example Image](./example.png)
+
 ## Usage
 
 ```bash
