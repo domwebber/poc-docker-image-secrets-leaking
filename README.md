@@ -49,9 +49,9 @@ Apigee][gcp-apigee-exploit].
 In the case of Codecov, credentials exported from a Docker image were used to
 launch a man-in-the-middle attack on Codecov's infrastructure and further
 exfiltrate the environment variables of some of Codecov's 23,000 customers
-(Jackson, 2021)[^4] - and, consequentially, “Large organizations such as Twilio,
+(Jackson, 2021)[^codecov-breach] - and, consequentially, “Large organizations such as Twilio,
 Hashicorp, Rapid7, Confluent have released their own statements about how this
-has affected them.” (Jackson, 2021)[^4]
+has affected them.” (Jackson, 2021)[^codecov-breach]
 
 Similarly, in the case of Apigee it was found that “Aside from a number of other
 bugs found by analysing the source code (SSRFs, path traversals, authorization
@@ -124,7 +124,7 @@ Manager][gcp-secret-manager], or [Azure Key Vault][azure-key-vault].
 As an additional preventative step, “you can prevent files from accidentally
 winding up on your image by adding them to the `.dockerignore` file. For
 example, if you’re worried about accidentally adding SSH keys to your image, you
-can include: `*id_rsa*`” (Cotton, 2023)[^8]
+can include: `*id_rsa*`” (Cotton, 2023)[^protecting-docker-secrets]
 
 In general, it is important to stay up to date with the latest security
 practices and to ensure that your Docker images are secure.
