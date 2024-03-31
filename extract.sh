@@ -10,9 +10,8 @@ mkdir -p $extract_to
 docker save $image | tar -C $extract_to -xvf -
 
 grep_for=$2
-grep_from=images/$image/blobs/sha256
 
-echo "Finding $grep_for in $grep_from..."
+echo "Finding $grep_for in $extract_to..."
 echo "Found $grep_for in:"
 
-grep -r $grep_for $grep_from
+grep -r $grep_for $extract_to
