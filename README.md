@@ -87,7 +87,7 @@ and infrastructure.
 
 In the case of Apigee, this was accidentally not the case - "a Docker registry
 was available on docker.apigee.net, which allowed unauthenticated users to pull
-the Apigee Edge Docker image" (August, 2023)[^apigee-breach]. This is the kind of small
+the Apigee Edge Docker image" (August, 2023)‌[^apigee-breach]. This is the kind of small
 oversight that can have large consequences. It is one issue to accidentally
 expose the source code of your application - whereas exposing the critical
 secrets of the application alongside it gives an attacker both the lock and the
@@ -95,7 +95,7 @@ key and potentially full control for whatever intent they might have.
 
 Regardless of the privacy of the Docker Repository, accidental public exposure
 of the Docker repository is not the only way that a Docker image, and thus the
-secrets within it, may be accessed or exposed: (August, 2023)[^apigee-breach]
+secrets within it, may be accessed or exposed: (August, 2023)‌[^apigee-breach]
 
 - Images are pulled to developer’s machines, stored and forgotten. These
   machines can be hacked, lost and stolen, kept after employee quits.
