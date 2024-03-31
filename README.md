@@ -80,7 +80,7 @@ should be automatically trusted.” (Cloudflare.com, 2021)[^7]
 
 By leaving such such a security hole in your application, any RBAC or other
 procedures that you have in place to protect your application are bypassed and
-Docker repository access could be utilised to gain access to production systems
+Docker repository access could be utilised to compromise production systems
 and infrastructure.
 
 ### My Docker Repository is Private, So It's Safe, Right?
