@@ -76,7 +76,7 @@ escalate their privileges.
 
 Alongside this, a pillar of zero-trust security is the assumption that “there
 are attackers both within and outside of the network, so no users or machines
-should be automatically trusted.” (Cloudflare.com, 2021)[^7]
+should be automatically trusted.” (Cloudflare.com, 2021)[^zero-trust-explanation]
 
 By leaving such such a security hole in your application, any RBAC or other
 procedures that you have in place to protect your application are bypassed and
