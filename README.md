@@ -56,7 +56,7 @@ has affected them.” (Jackson, 2021)[^codecov-breach]
 Similarly, in the case of Apigee it was found that “Aside from a number of other
 bugs found by analysing the source code (SSRFs, path traversals, authorization
 bypasses and more), the image included several hard-coded passwords, which
-turned out to be re-used in production.” (August, 2023)‌‌‌[^apigee-breach] As a result of these
+turned out to be re-used in production.” (August, 2023)‌‌‌[^apigee-case] As a result of these
 findings, the researcher was able to gain access to Google's own Apigee
 instance.
 
@@ -87,7 +87,7 @@ and infrastructure.
 
 In the case of Apigee, this was accidentally not the case - "a Docker registry
 was available on docker.apigee.net, which allowed unauthenticated users to pull
-the Apigee Edge Docker image" (August, 2023)‌‌‌[^apigee-breach]. This is the kind of small
+the Apigee Edge Docker image" (August, 2023)‌‌‌[^apigee-case]. This is the kind of small
 oversight that can have large consequences. It is one issue to accidentally
 expose the source code of your application - whereas exposing the critical
 secrets of the application alongside it gives an attacker both the lock and the
@@ -95,7 +95,7 @@ key and potentially full control for whatever intent they might have.
 
 Regardless of the privacy of the Docker Repository, accidental public exposure
 of the Docker repository is not the only way that a Docker image, and thus the
-secrets within it, may be accessed or exposed: (August, 2023)‌‌‌[^apigee-breach]
+secrets within it, may be accessed or exposed: (August, 2023)‌‌‌[^apigee-case]
 
 - Images are pulled to developer’s machines, stored and forgotten. These
   machines can be hacked, lost and stolen, kept after employee quits.
@@ -116,7 +116,7 @@ you to keep your Docker image free of sensitive information and allows you to
 rotate secrets without needing to rebuild your Docker image.
 
 “Ideally, secrets should be stored in a cryptographic secret vault and loaded
-when needed" (August, 2023)‌‌‌[^apigee-breach] and such a solution can be implemented using
+when needed" (August, 2023)‌‌‌[^apigee-case] and such a solution can be implemented using
 tools such as [HashiCorp Vault][hashicorp-vault], [AWS Secrets
 Manager][aws-secrets-manager], [Google Cloud Secret
 Manager][gcp-secret-manager], or [Azure Key Vault][azure-key-vault].
@@ -200,7 +200,7 @@ grep: images/<image>/blobs/sha256/...
     <https://blog.gitguardian.com/codecov-supply-chain-breach/> [Accessed 31
     Mar. 2024].
 
-‌‌‌‌[^apigee-breach]: August, C. (2023). Why you shouldn’t include secrets in Docker images, a
+[^apigee-case]: August, C. (2023). Why you shouldn’t include secrets in Docker images, a
 Google Cloud case study. [online] Binary Security AS. Available at:
 <https://www.binarysecurity.no/posts/2023/04/secrets-in-docker-images> [Accessed
 31 Mar. 2024].
