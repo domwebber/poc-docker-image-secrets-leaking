@@ -1,0 +1,11 @@
+name: Check Main
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  check-links:
+    uses: ./.github/workflows/check-links.yml
+    secrets: inherit

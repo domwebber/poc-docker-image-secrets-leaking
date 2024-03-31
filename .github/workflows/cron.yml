@@ -1,0 +1,10 @@
+name: Check Scheduled
+
+on:
+  schedule:
+    - cron: "0 0 1 * *"
+
+jobs:
+  check-links:
+    uses: ./.github/workflows/check-links.yml
+    secrets: inherit
