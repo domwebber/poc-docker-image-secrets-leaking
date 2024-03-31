@@ -172,6 +172,10 @@ Found something_that_should_not_be_found in:
 grep: images/<image>/blobs/sha256/...
 ```
 
+## Credits and Acknowledgements
+
+CC-BY-SA 4.0 © 2024 [Dom Webber](https://domwebber.dev)
+
 ## References
 
 [^dockerfile-best-practices]:
