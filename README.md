@@ -13,7 +13,7 @@ varying ways.
 
 After reading that "best practice" suggests that one should “Never put any
 secret or credentials in the Dockerfile instructions (environment variables,
-args, or hard coded into any command)” (Álvaro Iradier, 2021)[^1] and seeing how
+args, or hard coded into any command)” (Álvaro Iradier, 2021)[^dockerfile-best-practices] and seeing how
 often this practice is ignored, I questioned how easy it would be to extract
 secrets from a Docker image.
 
@@ -26,7 +26,7 @@ copying sensitive files into the image, whether by mistake, due to naïvety, or
 for "ease of use". Fundamentally, this issue is described by [CWE-798: Use of
 Hard-coded Credentials][cwe-798-harcoded-credentials] in that “Hard-coded
 credentials typically create a significant hole that allows an attacker to
-bypass the authentication that has been configured” (Mitre.org, 2020)[^2].
+bypass the authentication that has been configured” (Mitre.org, 2020)[^cwe-798].
 
 Secrets could be stored into a Docker image by copying your `.env` file into the
 image, or by copying a private key, or other similar credentials, into the
@@ -39,7 +39,7 @@ into the image are simple.
 
 Research by RWTH Aachen University in Germany, analysing `337,171` images and
 `1,647,300` layers, found that `8.5%` images analysed contained valid secrets.
-(Dahlmanns et al., 2023)[^3].
+(Dahlmanns et al., 2023)[^image-secrets-paper].
 
 Some high-profile security events that can be attributed to the exploitation of
 secrets stored in Docker images include the [Codecov breach in January
@@ -56,7 +56,7 @@ has affected them.” (Jackson, 2021)[^4]
 Similarly, in the case of Apigee it was found that “Aside from a number of other
 bugs found by analysing the source code (SSRFs, path traversals, authorization
 bypasses and more), the image included several hard-coded passwords, which
-turned out to be re-used in production.” (August, 2023)[^5] As a result of these
+turned out to be re-used in production.” (August, 2023)[^apigee-breach] As a result of these
 findings, the researcher was able to gain access to Google's own Apigee
 instance.
 
@@ -68,7 +68,7 @@ instance.
 
 The security concept of Least Privilege asserts that “a user or entity should
 only have access to the specific data, resources and applications needed to
-complete a required task.” (Palo Alto Networks, 2015)[^6] which,
+complete a required task.” (Palo Alto Networks, 2015)[^least-privilege-explanation] which,
 consequentially, helps to reduce attack surface and attack spread. By storing
 secrets in Docker images, it becomes possible to bypass other security
 procedures without the need for them to be compromised, nor for the attacker to
@@ -87,7 +87,7 @@ and infrastructure.
 
 In the case of Apigee, this was accidentally not the case - "a Docker registry
 was available on docker.apigee.net, which allowed unauthenticated users to pull
-the Apigee Edge Docker image" (August, 2023)[^5]. This is the kind of small
+the Apigee Edge Docker image" (August, 2023)[^apigee-breach]. This is the kind of small
 oversight that can have large consequences. It is one issue to accidentally
 expose the source code of your application - whereas exposing the critical
 secrets of the application alongside it gives an attacker both the lock and the
@@ -95,7 +95,7 @@ key and potentially full control for whatever intent they might have.
 
 Regardless of the privacy of the Docker Repository, accidental public exposure
 of the Docker repository is not the only way that a Docker image, and thus the
-secrets within it, may be accessed or exposed: (August, 2023)[^5]
+secrets within it, may be accessed or exposed: (August, 2023)[^apigee-breach]
 
 - Images are pulled to developer’s machines, stored and forgotten. These
   machines can be hacked, lost and stolen, kept after employee quits.
@@ -116,7 +116,7 @@ you to keep your Docker image free of sensitive information and allows you to
 rotate secrets without needing to rebuild your Docker image.
 
 “Ideally, secrets should be stored in a cryptographic secret vault and loaded
-when needed" (August, 2023)[^5] and such a solution can be implemented using
+when needed" (August, 2023)[^apigee-breach] and such a solution can be implemented using
 tools such as [HashiCorp Vault][hashicorp-vault], [AWS Secrets
 Manager][aws-secrets-manager], [Google Cloud Secret
 Manager][gcp-secret-manager], or [Azure Key Vault][azure-key-vault].
@@ -177,46 +177,46 @@ grep: images/<image>/blobs/sha256/...
 
 ## References
 
-[^1]:
+[^dockerfile-best-practices]:
     Álvaro Iradier (2021). _Top 20 Dockerfile best practices._ [online] Sysdig.
     Available at: <https://sysdig.com/blog/dockerfile-best-practices/> [Accessed
     28 Mar. 2024].
 
-[^2]:
+[^cwe-798]:
     Mitre.org. (2020). CWE - CWE-798: Use of Hard-coded Credentials (4.14).
     [online] Available at: <https://cwe.mitre.org/data/definitions/798.html>
     [Accessed 31 Mar. 2024].
 
-[^3]:
+[^image-secrets-paper]:
     Dahlmanns, M., Sander, C., Decker, R. and Wehrle, K. (2023). Secrets
     Revealed in Container Images: An Internet-wide Study on Occurrence and
     Impact. Proceedings of the ACM Asia Conference on Computer and
     Communications Security. [online]
     doi:<https://doi.org/10.1145/3579856.3590329>.
 
-[^4‌]:
+[^codecov-breach]:
     Jackson, M. (2021). Codecov supply chain attack breakdown. [online]
     GitGuardian Blog - Code Security for the DevOps generation. Available at:
     <https://blog.gitguardian.com/codecov-supply-chain-breach/> [Accessed 31
     Mar. 2024].
 
-‌[^5]: August, C. (2023). Why you shouldn’t include secrets in Docker images, a
+‌[^apigee-breach]: August, C. (2023). Why you shouldn’t include secrets in Docker images, a
 Google Cloud case study. [online] Binary Security AS. Available at:
 <https://www.binarysecurity.no/posts/2023/04/secrets-in-docker-images> [Accessed
 31 Mar. 2024].
 
-[^6]:
+[^least-privilege-explanation]:
     Palo Alto Networks. (2015). What Is the Principle of Least Privilege?
     [online] Available at:
     <https://www.paloaltonetworks.com/cyberpedia/what-is-the-principle-of-least-privilege>
     [Accessed 31 Mar. 2024].
 
-‌[^7]: Cloudflare.com. (2021). Zero Trust security | What is a Zero Trust
+[^zero-trust-explanation]: Cloudflare.com. (2021). Zero Trust security | What is a Zero Trust
 network? [online] Available at:
 <https://www.cloudflare.com/en-gb/learning/security/glossary/what-is-zero-trust/>
 [Accessed 31 Mar. 2024].
 
-‌[^8]: Cotton, B. (2023). Protecting Secrets with Docker | Docker. [online]
+[^protecting-docker-secrets]: Cotton, B. (2023). Protecting Secrets with Docker | Docker. [online]
 Docker. Available at:
 <https://www.docker.com/blog/protecting-secrets-with-docker/> [Accessed 31 Mar.
 2024].
