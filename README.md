@@ -68,7 +68,7 @@ instance.
 
 The security concept of Least Privilege asserts that “a user or entity should
 only have access to the specific data, resources and applications needed to
-complete a required task.” (Palo Alto Networks, 2015)[^8] which,
+complete a required task.” (Palo Alto Networks, 2015)[^6] which,
 consequentially, helps to reduce attack surface and attack spread. By storing
 secrets in Docker images, it becomes possible to bypass other security
 procedures without the need for them to be compromised, nor for the attacker to
@@ -124,7 +124,7 @@ Manager][gcp-secret-manager], or [Azure Key Vault][azure-key-vault].
 As an additional preventative step, “you can prevent files from accidentally
 winding up on your image by adding them to the `.dockerignore` file. For
 example, if you’re worried about accidentally adding SSH keys to your image, you
-can include: `*id_rsa*`” (Cotton, 2023)[^6]
+can include: `*id_rsa*`” (Cotton, 2023)[^8]
 
 In general, it is important to stay up to date with the latest security
 practices and to ensure that your Docker images are secure.
@@ -205,18 +205,18 @@ Google Cloud case study. [online] Binary Security AS. Available at:
 <https://www.binarysecurity.no/posts/2023/04/secrets-in-docker-images> [Accessed
 31 Mar. 2024].
 
-‌[^6]: Cotton, B. (2023). Protecting Secrets with Docker | Docker. [online]
-Docker. Available at:
-<https://www.docker.com/blog/protecting-secrets-with-docker/> [Accessed 31 Mar.
-2024].
+[^6]:
+    Palo Alto Networks. (2015). What Is the Principle of Least Privilege?
+    [online] Available at:
+    <https://www.paloaltonetworks.com/cyberpedia/what-is-the-principle-of-least-privilege>
+    [Accessed 31 Mar. 2024].
 
 ‌[^7]: Cloudflare.com. (2021). Zero Trust security | What is a Zero Trust
 network? [online] Available at:
 <https://www.cloudflare.com/en-gb/learning/security/glossary/what-is-zero-trust/>
 [Accessed 31 Mar. 2024].
 
-[^8]:
-    Palo Alto Networks. (2015). What Is the Principle of Least Privilege?
-    [online] Available at:
-    <https://www.paloaltonetworks.com/cyberpedia/what-is-the-principle-of-least-privilege>
-    [Accessed 31 Mar. 2024].
+‌[^8]: Cotton, B. (2023). Protecting Secrets with Docker | Docker. [online]
+Docker. Available at:
+<https://www.docker.com/blog/protecting-secrets-with-docker/> [Accessed 31 Mar.
+2024].
