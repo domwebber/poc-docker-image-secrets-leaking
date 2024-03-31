@@ -22,7 +22,7 @@ secrets from a Docker image.
 ## The Problem
 
 One way that secrets tend to be stored into a Docker image is through
-copying sensitive files into the image, whether by mistake, due to naïvety, or
+copying sensitive files into the image, whether by mistake, due to naivety, or
 for "ease of use". Fundamentally, this issue is described by [CWE-798: Use of
 Hard-coded Credentials][cwe-798-harcoded-credentials] in that “Hard-coded
 credentials typically create a significant hole that allows an attacker to
