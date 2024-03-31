@@ -126,9 +126,6 @@ winding up on your image by adding them to the `.dockerignore` file. For
 example, if you’re worried about accidentally adding SSH keys to your image, you
 can include: `*id_rsa*`” (Cotton, 2023)[^protecting-docker-secrets]
 
-In general, it is important to stay up to date with the latest security
-practices and to ensure that your Docker images are secure.
-
 [hashicorp-vault]: https://www.hashicorp.com/products/vault
 [aws-secrets-manager]: https://aws.amazon.com/secrets-manager/
 [gcp-secret-manager]: https://cloud.google.com/security/products/secret-manager
