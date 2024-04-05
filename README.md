@@ -153,6 +153,7 @@ can include: `*id_rsa*`” (Cotton, 2023)[^protecting-docker-secrets]
 - [Docker's advice on Security Best Practices][docker-best-practices]
 - [Spacelift's Docker Security Best Practices][spacelift-docker-security]
 - [OWASP WrongSecrets Repository][owasp-wrongsecrets]
+- [NestJS Secret Manager Example][nestjs-secret-manager-example]
 
 [owasp-docker-security]:
   https://cheatsheetseries.owasp.org/cheatsheets/Docker_Security_Cheat_Sheet.html
@@ -160,6 +161,7 @@ can include: `*id_rsa*`” (Cotton, 2023)[^protecting-docker-secrets]
   https://docs.docker.com/develop/security-best-practices/
 [spacelift-docker-security]: https://spacelift.io/blog/docker-security
 [owasp-wrongsecrets]: https://github.com/OWASP/wrongsecrets
+[nestjs-secret-manager-example]: https://bitbucket.org/nikhil-simform/secret-manager
 
 ## Usage
 
