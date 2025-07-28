@@ -11,9 +11,9 @@ varying ways.
 
 ## Introduction
 
-After reading that "best practice" suggests that one should “Never put any
+After reading that "best practice" suggests that one should never put any
 secret or credentials in the Dockerfile instructions (environment variables,
-args, or hard coded into any command)” (Álvaro Iradier, 2021)[^dockerfile-best-practices] and seeing how
+args, or hard coded into any command) (Álvaro Iradier, 2021)[^dockerfile-best-practices] and seeing how
 often this practice is ignored, I questioned how easy it would be to extract
 secrets from a Docker image.
 
@@ -24,9 +24,9 @@ secrets from a Docker image.
 One way that secrets tend to be stored into a Docker image is through
 copying sensitive files into the image, whether by mistake, due to naivety, or
 for "ease of use". Fundamentally, this issue is described by [CWE-798: Use of
-Hard-coded Credentials][cwe-798-harcoded-credentials] in that “Hard-coded
+Hard-coded Credentials][cwe-798-harcoded-credentials] in that hard-coded
 credentials typically create a significant hole that allows an attacker to
-bypass the authentication that has been configured” (Mitre.org, 2020)[^cwe-798].
+bypass the authentication that has been configured (Mitre.org, 2020)[^cwe-798].
 
 Secrets could be stored into a Docker image by copying your `.env` file into the
 image, or by copying a private key, or other similar credentials, into the
@@ -49,14 +49,14 @@ Apigee][gcp-apigee-exploit].
 In the case of Codecov, credentials exported from a Docker image were used to
 launch a man-in-the-middle attack on Codecov's infrastructure and further
 exfiltrate the environment variables of some of Codecov's 23,000 customers
-(Jackson, 2021)[^codecov-breach] - and, consequentially, “Large organizations such as Twilio,
+(Jackson, 2021)[^codecov-breach] - and, consequentially, large organizations such as Twilio,
 Hashicorp, Rapid7, Confluent have released their own statements about how this
-has affected them.” (Jackson, 2021)[^codecov-breach]
+has affected them. (Jackson, 2021)[^codecov-breach]
 
-Similarly, in the case of Apigee it was found that “Aside from a number of other
+Similarly, in the case of Apigee it was found that Aside from a number of other
 bugs found by analysing the source code (SSRFs, path traversals, authorization
 bypasses and more), the image included several hard-coded passwords, which
-turned out to be re-used in production.” (August, 2023)‌‌‌[^apigee-case] As a result of these
+turned out to be re-used in production. (August, 2023)‌‌‌[^apigee-case] As a result of these
 findings, the researcher was able to gain access to Google's own Apigee
 instance.
 
@@ -66,17 +66,17 @@ instance.
 
 ## Why It Matters
 
-The security concept of Least Privilege asserts that “a user or entity should
+The security concept of Least Privilege asserts that a user or entity should
 only have access to the specific data, resources and applications needed to
-complete a required task.” (Palo Alto Networks, 2015)[^least-privilege-explanation] which,
+complete a required task. (Palo Alto Networks, 2015)[^least-privilege-explanation] which,
 consequentially, helps to reduce attack surface and attack spread. By storing
 secrets in Docker images, it becomes possible to bypass other security
 procedures without the need for them to be compromised, nor for the attacker to
 escalate their privileges.
 
-Alongside this, a pillar of zero-trust security is the assumption that “there
+Alongside this, a pillar of zero-trust security is the assumption that there
 are attackers both within and outside of the network, so no users or machines
-should be automatically trusted.” (Cloudflare.com, 2021)[^zero-trust-explanation]
+should be automatically trusted. (Cloudflare.com, 2021)[^zero-trust-explanation]
 
 By leaving such such a security hole in your application, any RBAC or other
 procedures that you have in place to protect your application are bypassed and
@@ -85,9 +85,9 @@ and infrastructure.
 
 ### My Docker Repository is Private, So It's Safe, Right?
 
-In the case of Apigee, this was accidentally not the case - "a Docker registry
+In the case of Apigee, this was accidentally not the case - a Docker registry
 was available on docker.apigee.net, which allowed unauthenticated users to pull
-the Apigee Edge Docker image" (August, 2023)‌‌‌[^apigee-case]. This is the kind of small
+the Apigee Edge Docker image (August, 2023)‌‌‌[^apigee-case]. This is the kind of small
 oversight that can have large consequences. It is one issue to accidentally
 expose the source code of your application - whereas exposing the critical
 secrets of the application alongside it gives an attacker both the lock and the
@@ -115,16 +115,16 @@ use a secret management system to store and retrieve these secrets. This allows
 you to keep your Docker image free of sensitive information and allows you to
 rotate secrets without needing to rebuild your Docker image.
 
-“Ideally, secrets should be stored in a cryptographic secret vault and loaded
-when needed" (August, 2023)‌‌‌[^apigee-case] and such a solution can be implemented using
+Ideally, secrets should be stored in a cryptographic secret vault and loaded
+when needed (August, 2023)‌‌‌[^apigee-case] and such a solution can be implemented using
 tools such as [HashiCorp Vault][hashicorp-vault], [AWS Secrets
 Manager][aws-secrets-manager], [Google Cloud Secret
 Manager][gcp-secret-manager], or [Azure Key Vault][azure-key-vault].
 
-As an additional preventative step, “you can prevent files from accidentally
+As an additional preventative step, you can prevent files from accidentally
 winding up on your image by adding them to the `.dockerignore` file. For
 example, if you’re worried about accidentally adding SSH keys to your image, you
-can include: `*id_rsa*`” (Cotton, 2023)[^protecting-docker-secrets]
+can include: `*id_rsa*` (Cotton, 2023)[^protecting-docker-secrets]
 
 [hashicorp-vault]: https://www.hashicorp.com/products/vault
 [aws-secrets-manager]: https://aws.amazon.com/secrets-manager/
